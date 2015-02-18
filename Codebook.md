@@ -1,6 +1,8 @@
-## Code Book
+## Codebook
 
-For the provided UCI HAR Dataset the following vars are set from run_analysis.R.  See the [README](README.md) for additional details.
+This codebook describes the data resulting from the [run_analysis.R](https://github.com/dimichelec/getdata-011-Course-Project/blob/master/run_analysis.R) script in this repository. See [README.md]
+
+General information about the original dataset is [here](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#).
 
 ### Tidy Mean
 
