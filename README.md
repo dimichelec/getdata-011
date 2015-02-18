@@ -1,9 +1,8 @@
 ## Getting and Cleaning Data (getdata-011) - Course Project
 
 The project uses a script to get and clean some human activity recognition data collected from a smartphone.
-The script used to process the dataset is [run_analysis.R](https://github.com/dimichelec/getdata-011-Course-Project/blob/master/run_analysis.R) in this repository.
 
-*Find out more about the original dataset [here](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#). Its header is here:*
+*Find out more about the original dataset [here](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#).*
 
 ```
 ==================================================================
@@ -18,10 +17,13 @@ activityrecognition@smartlab.ws
 www.smartlab.ws
 ==================================================================
 ```
+* The script used to process the dataset is [run_analysis.R](https://github.com/dimichelec/getdata-011-Course-Project/blob/master/run_analysis.R)
+* The codebook for the resulting data is [Codebook.md](https://github.com/dimichelec/getdata-011-Course-Project/blob/master/Codebook.md)
+
 
 ###Theory of Operation
 
-*  `run_analysis.R` works on the original .zip file, `UCI_HAR_Dataset.zip`
+*  [run_analysis.R](https://github.com/dimichelec/getdata-011-Course-Project/blob/master/run_analysis.R) works on the original .zip file, `UCI_HAR_Dataset.zip`
 *  Uncomment three lines in the `# Download the dataset:` section to download the original .zip
 *  The resultant dataset is saved as `dat2.txt` in the working directory
 *  The script uses the `plyr` and `reshape2` libraries
