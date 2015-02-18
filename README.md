@@ -1,7 +1,7 @@
 # getdata-011-Course-Project
 
 The project uses a script to get and clean some human activity recognition data collected from a smartphone.
-The script used to process the dataset is run_analysis.R included in this repository.
+The script used to process the dataset is <b>run_analysis.R</b> included in this repository.
 
 The dataset is this:
 ---
