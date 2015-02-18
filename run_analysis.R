@@ -21,9 +21,9 @@
 # Download the dataset:
 dataFile <- "UCI_HAR_Dataset.zip"
 
- fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
- download.file(url = fileUrl, destfile = dataFile, method = "auto")
- dateDownloaded <- date()
+# fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+# download.file(url = fileUrl, destfile = dataFile, method = "auto")
+# dateDownloaded <- date()
 
 
 # 1. Merges the training and the test sets to create one data set.
