@@ -18,74 +18,27 @@ www.smartlab.ws<br/>
 ==================================================================
 </div>  
 
-Theory of Operation:
-run_analysis.R can download the original .zip dataset by uncommenting # Download the dataset:
-<!---
-#
-# ... and does the following with it:
+###Theory of Operation
+*run_analysis.R* can download the original .zip dataset by uncommenting the three lines in the `# Download the dataset:` section of the script, a few lines from the top. If not downloading the original file, *UCI_HAR_Dataset.zip*, it is expected that this file is present in the working directory when running the rest of the script.
+In general, the script does the following:
 
-# Download the dataset:
-dataFile <- "UCI_HAR_Dataset.zip"
+1. Merges the training and the test sets to create one data set.
+2. Extracts only the measurements on the mean and standard deviation for each measurement. 
+3. Uses descriptive activity names to name the activities in the data set
+4. Appropriately labels the data set with descriptive variable names.
+5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
- fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
- download.file(url = fileUrl, destfile = dataFile, method = "auto")
- dateDownloaded <- date()
+It then writes the output data to the file *dat2.txt* in the working directory.
 
+Throughout the script, it reads the different files from the source data directly from the .zip file using the *unz* command.
 
-# 1. Merges the training and the test sets to create one data set.
+First it reads the training data from *subject_train.txt, y_train.txt, and X_train.txt*, combining these three into the data frame by column. It then, does the same thing with the test data, *subject_test.txt, y_test.txt, and X_test.txt*, and merges this set with the training observations using an *rbind* command.
 
-dat <- cbind(
-  read.table(unz(dataFile, "UCI HAR Dataset/train/subject_train.txt")),
-  read.table(unz(dataFile, "UCI HAR Dataset/train/y_train.txt")),
-  read.table(unz(dataFile, "UCI HAR Dataset/train/X_train.txt"))
-)
+Having all the data in one data frame, the columns are named mostly using the *features.txt* file, from the *.zip*, directly to name the variables. During this pocedure, any parentheses are removed from the variable names read from the file due to parentheses being problematic in using the data frame.
 
-dat <- rbind(dat,
-  cbind(
-    read.table(unz(dataFile, "UCI HAR Dataset/test/subject_test.txt")),
-    read.table(unz(dataFile, "UCI HAR Dataset/test/y_test.txt")),
-    read.table(unz(dataFile, "UCI HAR Dataset/test/X_test.txt"))
-  )             
-)
+Next, the script creats a logical list denoting which variable columns can be kept due to finding the words "-mean" or "-std" in the column name. It then uses this list to keep only the subject, activity, and mean and standard deviation variable columns.
 
+It then renames the activity values using the *mapvalues* command and the *activity_labels.txt* file from the *.zip*.
 
-# 4. Appropriately labels the data set with descriptive variable names.
+Lastly, the script *melt*s the data grouping by subject with activity, and uses *dcast* on the molten data set to produce a data frame of mean values for each variable of a subject|activity grouping, then saves it to *dat2.txt*.
 
-names(dat)[1] <- "subject"
-names(dat)[2] <- "activity"
-names(dat)[3:563] = gsub(
-  "(\\(|\\))*","",
-  as.character(read.table(unz(dataFile, "UCI HAR Dataset/features.txt"))[,2])
-)
-
-
-# 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
-
-keep <- grepl("(-mean|-std)\\b",names(dat))
-keep[1:2] <- TRUE
-dat <- dat[,keep]
-
-
-# 3. Uses descriptive activity names to name the activities in the data set
-
-library(plyr)
-dat$activity <- mapvalues(
-  dat$activity,
-  from = 1:6,
-  to = as.character(read.table(unz(dataFile, "UCI HAR Dataset/activity_labels.txt"))[,2])
-)
-
-
-# 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-
-dat2 <- dcast(
-  melt(dat,id.vars = c("subject","activity")), 
-  subject + activity ~ variable,
-  mean
-)
-
-
-# write the output data to a file
-
-write.table(dat2, file = "dat2.txt", row.name = FALSE)
--->
