@@ -4,7 +4,7 @@ The project uses a script to get and clean some human activity recognition data 
 The script used to process the dataset is [run_analysis.R](https://github.com/dimichelec/getdata-011-Course-Project/blob/master/run_analysis.R) in this repository.
 
 *The header from the original dataset:*
-<div>
+><div>
 ==================================================================<br/>
 Human Activity Recognition Using Smartphones Dataset<br/>
 Version 1.0<br/>
