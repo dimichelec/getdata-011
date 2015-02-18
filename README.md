@@ -3,19 +3,20 @@
 The project uses a script to get and clean some human activity recognition data collected from a smartphone.
 The script used to process the dataset is [run_analysis.R](https://github.com/dimichelec/getdata-011-Course-Project/blob/master/run_analysis.R) in this repository.
 
-*The header from the original dataset:*  
->`==================================================================`  
->`Human Activity Recognition Using Smartphones Dataset`  
->`Version 1.0`  
->`==================================================================`  
->`Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.`  
->`Smartlab - Non Linear Complex Systems Laboratory`  
->`DITEN - Università degli Studi di Genova.`  
->`Via Opera Pia 11A, I-16145, Genoa, Italy.`  
->`activityrecognition@smartlab.ws`  
->`www.smartlab.ws`  
->`==================================================================`  
-
+*The header from the original dataset:*
+<div>
+==================================================================
+Human Activity Recognition Using Smartphones Dataset
+Version 1.0
+==================================================================
+Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
+Smartlab - Non Linear Complex Systems Laboratory
+DITEN - Università degli Studi di Genova.
+Via Opera Pia 11A, I-16145, Genoa, Italy.
+activityrecognition@smartlab.ws
+www.smartlab.ws
+==================================================================
+</div>
 
 You can find out more about it here:
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#
