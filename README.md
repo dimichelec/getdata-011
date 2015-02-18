@@ -5,16 +5,16 @@ The script used to process the dataset is [run_analysis.R](https://github.com/di
 
 *The header from the original dataset:*
 <div>
-==================================================================
-Human Activity Recognition Using Smartphones Dataset
-Version 1.0
-==================================================================
-Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.
-Smartlab - Non Linear Complex Systems Laboratory
-DITEN - Università degli Studi di Genova.
-Via Opera Pia 11A, I-16145, Genoa, Italy.
-activityrecognition@smartlab.ws
-www.smartlab.ws
+==================================================================<br/>
+Human Activity Recognition Using Smartphones Dataset<br/>
+Version 1.0<br/>
+==================================================================<br/>
+Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto.<br/>
+Smartlab - Non Linear Complex Systems Laboratory<br/>
+DITEN - Università degli Studi di Genova.<br/>
+Via Opera Pia 11A, I-16145, Genoa, Italy.<br/>
+activityrecognition@smartlab.ws<br/>
+www.smartlab.ws<br/>
 ==================================================================
 </div>
 
