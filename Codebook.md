@@ -1,94 +1,72 @@
 ## Codebook
 
-This codebook describes the data resulting from the [run_analysis.R](https://github.com/dimichelec/getdata-011-Course-Project/blob/master/run_analysis.R) script in this repository. See [README.md]
+This codebook describes the data resulting from the [run_analysis.R](https://github.com/dimichelec/getdata-011-Course-Project/blob/master/run_analysis.R) script in this repository. See [README.md](https://github.com/dimichelec/getdata-011-Course-Project/blob/master/README.md) for additional information.
 
-General information about the original dataset is [here](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#).
+Go [here](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#) for more information about the original dataset.
 
-### Tidy Mean
+### Mean Activity Data (dat2)
 
-A data.table named `tidy.mean` is set with the following columns.  All units are maintained from the original data set. A file named tidy.mean.txt is written from run_analysis.R.
+The `dat2` data table contains 66 of the original 561 features. Of the original list, any feature not labeled with a `-mean` or `-std` was left behind and the resulting data was aggregated (mean) based on *subject/activity* grouping.
 
-| column       | description                                              | type    |
-| ------------ | -------------------------------------------------------- | ------- |
-| Subject      | Identifier of the subject                                | integer |
-| Activity     | Label of the activity                                    | factor  |
-| MeanSamples  | Mean of variables by Subject + Activity provided in tidy | numeric |
+The new *subject* column has a range of 1 thru 30 denoting the test subject the measurement (row) was logged from. The new *activity* column denotes the activity performed by the subject during the measurement. This column has values:  
 
-### Tidy
+| Activities          |
+|---------------------|
+| LAYING              |
+| SITTING             |
+| STANDING            |
+| WALKING             |
+| WALKING_DOWNSTAIRS  |
+| WALKING_UPSTAIRS    |
 
-A data.table named `tidy` is set with the following columns.  All units are maintained from the original data set. A file named tidy.txt is written from run_analysis.R.
+The 66 measured features were renamed to remove parentheses, making it easier to call them out in R. For example, `tBodyAcc-mean()-X` becomes `tBodyAcc-mean-X`. Also, of the 561 original features, the following were maintained which were the mean and standard deviation features:
 
-| Column                       | Original Name               |
-| ---------------------------- | --------------------------- |
-| Activity                     |                             |
-| Subject                      |                             |
-| Time.BodyAcc.Mean.X          | tBodyAcc-mean()-X           |
-| Time.BodyAcc.Mean.Y          | tBodyAcc-mean()-Y           |
-| Time.BodyAcc.Mean.Z          | tBodyAcc-mean()-Z           |
-| Time.BodyAcc.Std.X           | tBodyAcc-std()-X            |
-| Time.BodyAcc.Std.Y           | tBodyAcc-std()-Y            |
-| Time.BodyAcc.Std.Z           | tBodyAcc-std()-Z            |
-| Time.GravityAcc.Mean.X       | tGravityAcc-mean()-X        |
-| Time.GravityAcc.Mean.Y       | tGravityAcc-mean()-Y        |
-| Time.GravityAcc.Mean.Z       | tGravityAcc-mean()-Z        |
-| Time.GravityAcc.Std.X        | tGravityAcc-std()-X         |
-| Time.GravityAcc.Std.Y        | tGravityAcc-std()-Y         |
-| Time.GravityAcc.Std.Z        | tGravityAcc-std()-Z         |
-| Time.BodyAccJerk.Mean.X      | tBodyAccJerk-mean()-X       |
-| Time.BodyAccJerk.Mean.Y      | tBodyAccJerk-mean()-Y       |
-| Time.BodyAccJerk.Mean.Z      | tBodyAccJerk-mean()-Z       |
-| Time.BodyAccJerk.Std.X       | tBodyAccJerk-std()-X        |
-| Time.BodyAccJerk.Std.Y       | tBodyAccJerk-std()-Y        |
-| Time.BodyAccJerk.Std.Z       | tBodyAccJerk-std()-Z        |
-| Time.BodyGyro.Mean.X         | tBodyGyro-mean()-X          |
-| Time.BodyGyro.Mean.Y         | tBodyGyro-mean()-Y          |
-| Time.BodyGyro.Mean.Z         | tBodyGyro-mean()-Z          |
-| Time.BodyGyro.Std.X          | tBodyGyro-std()-X           |
-| Time.BodyGyro.Std.Y          | tBodyGyro-std()-Y           |
-| Time.BodyGyro.Std.Z          | tBodyGyro-std()-Z           |
-| Time.BodyGyroJerk.Mean.X     | tBodyGyroJerk-mean()-X      |
-| Time.BodyGyroJerk.Mean.Y     | tBodyGyroJerk-mean()-Y      |
-| Time.BodyGyroJerk.Mean.Z     | tBodyGyroJerk-mean()-Z      |
-| Time.BodyGyroJerk.Std.X      | tBodyGyroJerk-std()-X       |
-| Time.BodyGyroJerk.Std.Y      | tBodyGyroJerk-std()-Y       |
-| Time.BodyGyroJerk.Std.Z      | tBodyGyroJerk-std()-Z       |
-| Time.BodyAccMag.Mean         | tBodyAccMag-mean()          |
-| Time.BodyAccMag.Std          | tBodyAccMag-std()           |
-| Time.GravityAccMag.Mean      | tGravityAccMag-mean()       |
-| Time.GravityAccMag.Std       | tGravityAccMag-std()        |
-| Time.BodyAccJerkMag.Mean     | tBodyAccJerkMag-mean()      |
-| Time.BodyAccJerkMag.Std      | tBodyAccJerkMag-std()       |
-| Time.BodyGyroMag.Mean        | tBodyGyroMag-mean()         |
-| Time.BodyGyroMag.Std         | tBodyGyroMag-std()          |
-| Time.BodyGyroJerkMag.Mean    | tBodyGyroJerkMag-mean()     |
-| Time.BodyGyroJerkMag.Std     | tBodyGyroJerkMag-std()      |
-| FFT.BodyAcc.Mean.X           | fBodyAcc-mean()-X           |
-| FFT.BodyAcc.Mean.Y           | fBodyAcc-mean()-Y           |
-| FFT.BodyAcc.Mean.Z           | fBodyAcc-mean()-Z           |
-| FFT.BodyAcc.Std.X            | fBodyAcc-std()-X            |
-| FFT.BodyAcc.Std.Y            | fBodyAcc-std()-Y            |
-| FFT.BodyAcc.Std.Z            | fBodyAcc-std()-Z            |
-| FFT.BodyAccJerk.Mean.X       | fBodyAccJerk-mean()-X       |
-| FFT.BodyAccJerk.Mean.Y       | fBodyAccJerk-mean()-Y       |
-| FFT.BodyAccJerk.Mean.Z       | fBodyAccJerk-mean()-Z       |
-| FFT.BodyAccJerk.Std.X        | fBodyAccJerk-std()-X        |
-| FFT.BodyAccJerk.Std.Y        | fBodyAccJerk-std()-Y        |
-| FFT.BodyAccJerk.Std.Z        | fBodyAccJerk-std()-Z        |
-| FFT.BodyGyro.Mean.X          | fBodyGyro-mean()-X          |
-| FFT.BodyGyro.Mean.Y          | fBodyGyro-mean()-Y          |
-| FFT.BodyGyro.Mean.Z          | fBodyGyro-mean()-Z          |
-| FFT.BodyGyro.Std.X           | fBodyGyro-std()-X           |
-| FFT.BodyGyro.Std.Y           | fBodyGyro-std()-Y           |
-| FFT.BodyGyro.Std.Z           | fBodyGyro-std()-Z           |
-| FFT.BodyAccMag.Mean          | fBodyAccMag-mean()          |
-| FFT.BodyAccMag.Std           | fBodyAccMag-std()           |
-| FFT.BodyBodyAccJerkMag.Mean  | fBodyBodyAccJerkMag-mean()  |
-| FFT.BodyBodyAccJerkMag.Std   | fBodyBodyAccJerkMag-std()   |
-| FFT.BodyBodyGyroMag.Mean     | fBodyBodyGyroMag-mean()     |
-| FFT.BodyBodyGyroMag.Std      | fBodyBodyGyroMag-std()      |
-| FFT.BodyBodyGyroJerkMag.Mean | fBodyBodyGyroJerkMag-mean() |
-| FFT.BodyBodyGyroJerkMag.Std  | fBodyBodyGyroJerkMag-std()  |
+| | | |
+|---|---|---|
+|tBodyAcc-mean-X|tBodyAcc-mean-Y|tBodyAcc-mean-Z|
+|tBodyAcc-std-X|tBodyAcc-std-Y|tBodyAcc-std-Z|
+|tGravityAcc-mean-X|tGravityAcc-mean-Y|tGravityAcc-mean-Z|
+|tGravityAcc-std-X|tGravityAcc-std-Y|tGravityAcc-std-Z|
+|tBodyAccJerk-mean-X|tBodyAccJerk-mean-Y|tBodyAccJerk-mean-Z|
+|tBodyAccJerk-std-X|tBodyAccJerk-std-Y|tBodyAccJerk-std-Z|
+|tBodyGyro-mean-X|tBodyGyro-mean-Y|tBodyGyro-mean-Z|
+|tBodyGyro-std-X|tBodyGyro-std-Y|tBodyGyro-std-Z|
+|tBodyGyroJerk-mean-X|tBodyGyroJerk-mean-Y|tBodyGyroJerk-mean-Z|
+|tBodyGyroJerk-std-X|tBodyGyroJerk-std-Y|tBodyGyroJerk-std-Z|
+|tBodyAccMag-mean|tBodyAccMag-std||
+|tGravityAccMag-mean|tGravityAccMag-std||
+|tBodyAccJerkMag-mean|tBodyAccJerkMag-std||
+|tBodyGyroMag-mean|tBodyGyroMag-std||
+|tBodyGyroJerkMag-mean|tBodyGyroJerkMag-std||
+|fBodyAcc-mean-X|fBodyAcc-mean-Y|fBodyAcc-mean-Z|
+|fBodyAcc-std-X|fBodyAcc-std-Y|fBodyAcc-std-Z|
+|fBodyAccJerk-mean-X|fBodyAccJerk-mean-Y|fBodyAccJerk-mean-Z|
+|fBodyAccJerk-std-X|fBodyAccJerk-std-Y|fBodyAccJerk-std-Z|
+|fBodyGyro-mean-X|fBodyGyro-mean-Y|fBodyGyro-mean-Z|
+|fBodyGyro-std-X|fBodyGyro-std-Y|fBodyGyro-std-Z|
+|fBodyAccMag-mean|fBodyAccMag-std||
+|fBodyBodyAccJerkMag-mean|fBodyBodyAccJerkMag-std||
+|fBodyBodyGyroMag-mean|fBodyBodyGyroMag-std||
+|fBodyBodyGyroJerkMag-mean|fBodyBodyGyroJerkMag-std||
+
 
 ### Notes
 
-Source data is from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip.
+If I take a deeper look at this data, it looks like the *features.txt* file probably has issues. Feature names like `fBodyBodyAccJerkMag-mean()` and `fBodyBodyAccJerkMag-std()` should probably be `fBodyAccJerkMag-mean()` and `fBodyAccJerkMag-std()`.
+
+Basically, the resulting data of the script gives us this dataset:
+
+| | | | | |
+|---|---|---|---|---|
+|Accelerometer Features|||||
+|Base vector|BodyAcc|X,Y,Z,Magnitude|mean,std|time,freq|
+|Jerk vector|BodyAccJerk|X,Y,Z,Magnitude|mean,std|time,freq|
+|---|---|---|---|---|
+|Gyroscope Features|||||
+|Base vector|BodyGyro|X,Y,Z,Magnitude|mean,std|time,freq|
+|Jerk vector|BodyGyroJerk|X,Y,Z,Magnitude|mean,std|time|
+|---|---|---|---|---|
+|Gravity Features|||||
+|Acceleration|GravityAcc|X,Y,Z,Magnitude|mean,std|time|
+
+
