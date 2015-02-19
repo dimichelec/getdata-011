@@ -58,15 +58,15 @@ Basically, the resulting data of the script gives us this dataset:
 
 | | | | | |
 |---|---|---|---|---|
-|Accelerometer Features|||||
+|**Accelerometer Features**|||||
 |Base vector|BodyAcc|X,Y,Z,Magnitude|mean,std|time,freq|
 |Jerk vector|BodyAccJerk|X,Y,Z,Magnitude|mean,std|time,freq|
-|---|---|---|---|---|
-|Gyroscope Features|||||
+||||||
+|**Gyroscope Features**|||||
 |Base vector|BodyGyro|X,Y,Z,Magnitude|mean,std|time,freq|
 |Jerk vector|BodyGyroJerk|X,Y,Z,Magnitude|mean,std|time|
-|---|---|---|---|---|
-|Gravity Features|||||
+||||||
+|**Gravity Features**|||||
 |Acceleration|GravityAcc|X,Y,Z,Magnitude|mean,std|time|
 
 
